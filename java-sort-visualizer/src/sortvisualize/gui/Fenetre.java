@@ -12,8 +12,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
 
 import sortvisualizer.SortVisualizer;
+import sortvisualizer.sort.BubbleSort;
 
 public class Fenetre extends JFrame {
+	
+	private static Fenetre instance;
 	
 	private ButtonGroup sortGroup;
 	private JRadioButtonMenuItem menuBubble;
@@ -22,16 +25,18 @@ public class Fenetre extends JFrame {
 	
 	private SortVisualizer sV = SortVisualizer.getInstance();
 	
+	private PanelBar chart;
+	
 	Color[] colors = {Color.red, Color.blue, Color.green, Color.yellow, Color.magenta, Color.black};
 	
 	private static final long serialVersionUID = 1L;
 	
 	//Constantes de paramétrages
-	private final int FRAME_WIDTH 	= 1080;
-	private final int FRAME_HEIGHT 	= 720;
+	private final int FRAME_WIDTH 	= 1600;
+	private final int FRAME_HEIGHT 	= 900;
 	
 	
-	public Fenetre()
+	private Fenetre()
 	{
 		this.setTitle("Sort visualizer");
 		this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -45,6 +50,14 @@ public class Fenetre extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
+	public static Fenetre getInstance() {
+		if(instance == null)
+		{
+			return instance = new Fenetre();
+		}
+		return instance;
+	}
+	
 	/**
 	 * initMenus
 	 * Cree une JMenuBar avec tous 
@@ -54,7 +67,10 @@ public class Fenetre extends JFrame {
 	{
 		JMenuBar barre = new JMenuBar();
 		JMenu algo = new JMenu("Algorithmes");
+		
 		JButton start = new JButton("Trier");
+		start.addActionListener(ae -> sV.getSortAlgorithm().sort());
+
 		JButton reset = new JButton("Reset");
 		
 		JButton reload = new JButton("Reload");
@@ -64,10 +80,13 @@ public class Fenetre extends JFrame {
 		sortGroup = new ButtonGroup();
 	
 		menuBubble = new JRadioButtonMenuItem("Bubble sort");
+		menuBubble.addActionListener(ae -> sV.setSortAlgorithm(new BubbleSort()));
+		
 		menuMerge = new JRadioButtonMenuItem("Merge sort");
 		menuQuick = new JRadioButtonMenuItem("Quick sort");
 		
 		menuBubble.setSelected(true);
+		sV.setSortAlgorithm(new BubbleSort());
 		
 		algo.add(menuBubble);
 		algo.add(menuMerge);
@@ -91,20 +110,25 @@ public class Fenetre extends JFrame {
 	 * initCanva
 	 * Cree un panel qui va permettre de visualiser le tri
 	 */
-	private void initCanva() 
+	
+	private void initCanva()
 	{
-		
-		PanelBar chart = new PanelBar();
-		
+		chart = new PanelBar();
+		paintCanva();
+		add(chart);
+		repaint();
+	}
+	
+	public void paintCanva() 
+	{
 		int[] array = sV.getArray();
+		chart.reset();
 		for(int i = 0; i < array.length; i++)
 		{
 			chart.addBar(new Color(0f, 0.009f * array[i], 0.01f * array[i]), array[i]);
 		}
 		
-
-		
-		add(chart);
+		repaint();
 	}
 
 }

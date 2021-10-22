@@ -2,13 +2,15 @@ package sortvisualizer;
 
 import java.util.Random;
 
+import sortvisualizer.sort.Sort;
+
 /**
  * 
  * @author Adrien
  * Classe métier de mon application
  */
 public class SortVisualizer {
-	private final int ARRAY_SIZE 	= 50;
+	private final int ARRAY_SIZE 	= 10;
 	private final int MAX_VALUE 	= 100;
 	private final int MIN_VALUE		= 1;
 	
@@ -17,7 +19,9 @@ public class SortVisualizer {
 	
 	private int[] array;
 	
-	public SortVisualizer(){
+	private Sort sortAlgorithm;
+	
+	private SortVisualizer(){
 		Random r = new Random();
 		array = new int[ARRAY_SIZE];
 		
@@ -37,5 +41,17 @@ public class SortVisualizer {
 	
 	public int[] getArray() {
 		return array;
+	}
+	
+	public void setArray(int[] array) {
+		this.array = array;
+	}
+	
+	public void setSortAlgorithm(Sort sortAlgorithm) {
+		this.sortAlgorithm = sortAlgorithm;
+	}
+	
+	public Sort getSortAlgorithm() {
+		return sortAlgorithm;
 	}
 }

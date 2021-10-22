@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 public class PanelBar extends JPanel
 {
 	private List<Bar> bars =
-            new LinkedList<Bar>();
+			new LinkedList<Bar>();
 	
 	/**
 	 * Add new bar to chart
@@ -25,6 +25,11 @@ public class PanelBar extends JPanel
 	public void addBar(Color color, int value)
 	{
 		bars.add(new Bar(color, value));
+	}
+	
+	public void reset()
+	{
+		bars = new LinkedList<Bar>() ;
 	}
 	
 	@Override
@@ -40,8 +45,8 @@ public class PanelBar extends JPanel
 		
 		// paint bars
 		
-		int width = 10;
-		int x = 220;
+		int width = 80;
+		int x = 40;
 		for (Bar b : bars)
 		{
 			Color color = b.getColor();
