@@ -30,11 +30,11 @@ public class SettingsFrame extends JFrame {
 	private final int FRAME_HEIGHT 	= 900;
 	
 	
-	private final int SLIDER_SIZE_ARRAY_MIN = 1;
-	private final int SLIDER_SIZE_ARRAY_MAX = 300;
-	private final int SLIDER_SIZE_ARRAY_VAL = 150;
+	private final int SLIDER_SIZE_ARRAY_MIN = 0;
+	private final int SLIDER_SIZE_ARRAY_MAX = 1000;
+	private final int SLIDER_SIZE_ARRAY_VAL = 200;
 	
-	private final int SLIDER_WIDTH_BAR_MIN = 1;
+	private final int SLIDER_WIDTH_BAR_MIN = 0;
 	private final int SLIDER_WIDTH_BAR_MAX = 100;
 	private final int SLIDER_WIDTH_BAR_VAL = 8;
 	
@@ -42,7 +42,7 @@ public class SettingsFrame extends JFrame {
 	private final int SLIDER_X_BAR_MAX = 250;
 	private final int SLIDER_X_BAR_VAL = 20;
 	
-	private final int SLIDER_TIME_MIN = 1;
+	private final int SLIDER_TIME_MIN = 0;
 	private final int SLIDER_TIME_MAX = 1000;
 	private final int SLIDER_TIME_VAL = 1;
 	
@@ -81,7 +81,7 @@ public class SettingsFrame extends JFrame {
 		sliderXBar 			= new JSlider(SLIDER_X_BAR_MIN, SLIDER_X_BAR_MAX, SLIDER_X_BAR_VAL);
 		sliderTime 			= new JSlider(SLIDER_TIME_MIN, SLIDER_TIME_MAX, SLIDER_TIME_VAL);
 		
-		sliderSizeArray.setMajorTickSpacing(10);
+		sliderSizeArray.setMajorTickSpacing(100);
 		sliderSizeArray.setPaintTicks(true);
 		//Create the label table
 		Hashtable<Integer, JLabel> labelTableSize = new Hashtable<>();
@@ -94,7 +94,7 @@ public class SettingsFrame extends JFrame {
 			lblArray.setText("Nombre de barres : " + sliderSizeArray.getValue());
 			sV.ARRAY_SIZE = sliderSizeArray.getValue();
 			sV.reload();
-		});        
+		});    
 		
 		sliderWidthBar.setMajorTickSpacing(10);
 		sliderWidthBar.setPaintTicks(true);
@@ -143,7 +143,6 @@ public class SettingsFrame extends JFrame {
 			lblTime.setText("Pas de temps : " + sliderTime.getValue()+"ms");
 			sV.TIME = sliderTime.getValue();
 		});
-		sliderTime.setSnapToTicks(true);
 		
 		add(sliderSizeArray);
 		add(lblArray);

@@ -9,7 +9,6 @@ public class MergeSort implements Sort {
 	public void sort() {
 		Thread t = new Thread() {
 		      public void run() {
-		    	 System.out.println("TRI DE FUSION");
 	    	  	SortVisualizer sV = SortVisualizer.getInstance(); 	//Récupération de la classe métier
 	    	  	Fenetre f = Fenetre.getInstance();					//Récupération de la classe vue
 	    	  	sV.settSort(this);									//On affecte le thread de sort pour pouvoir le stopper en cas de reset
