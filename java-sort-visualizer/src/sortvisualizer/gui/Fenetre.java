@@ -104,10 +104,12 @@ public class Fenetre extends JFrame {
 		algo.add(menuBubble);
 		algo.add(menuMerge);
 		algo.add(menuQuick);
+		algo.add(menuInsert);
 		
 		sortGroup.add(menuBubble);
 		sortGroup.add(menuMerge);
 		sortGroup.add(menuQuick);
+		sortGroup.add(menuInsert);
 		
 		
 		barre.add(algo);

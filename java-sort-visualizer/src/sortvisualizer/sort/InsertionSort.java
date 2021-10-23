@@ -7,6 +7,7 @@ public class InsertionSort implements Sort {
 
 	@Override
 	public void sort() {
+		System.out.println("INSERTION");
 		Thread t = new Thread() {
 		      public void run() {
 	    	  	SortVisualizer sV = SortVisualizer.getInstance(); 	//Récupération de la classe métier
@@ -28,8 +29,14 @@ public class InsertionSort implements Sort {
 		            while (j >= 0 && array2Sort[j] > key) {
 		            	array2Sort[j + 1] = array2Sort[j];
 		                j = j - 1;
+		                try {
+							Thread.sleep(sV.TIME);				
+						} catch (InterruptedException e) {}
+						f.paintCanva();
 		            }
 		            array2Sort[j + 1] = key;
+		            
+		            
 		        }
 				
 				
