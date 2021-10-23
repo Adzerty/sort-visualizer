@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -26,21 +27,23 @@ public class Fenetre extends JFrame {
 	private SortVisualizer sV = SortVisualizer.getInstance();
 	
 	private PanelBar chart;
-	
-	Color[] colors = {Color.red, Color.blue, Color.green, Color.yellow, Color.magenta, Color.black};
-	
+	public JLabel lblTpsEcoule = new JLabel("  0s écoulée  ");
+		
 	private static final long serialVersionUID = 1L;
 	
 	//Constantes de paramétrages
 	private final int FRAME_WIDTH 	= 1600;
 	private final int FRAME_HEIGHT 	= 900;
 	
+	public int WIDTH_BAR = 8;
+	public int X_BAR = 20;
+	
 	
 	private Fenetre()
 	{
 		this.setTitle("Sort visualizer");
 		this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-		this.setLocation(0,0);
+		this.setLocation(0,20);
 		this.setResizable(false);
 		
 		initMenus();
@@ -72,9 +75,8 @@ public class Fenetre extends JFrame {
 		start.addActionListener(ae -> sV.getSortAlgorithm().sort());
 
 		JButton reset = new JButton("Reset");
+		reset.addActionListener(ae -> sV.reload());
 		
-		JButton reload = new JButton("Reload");
-		reload.addActionListener(ae -> repaint());
 
 		
 		sortGroup = new ButtonGroup();
@@ -100,7 +102,7 @@ public class Fenetre extends JFrame {
 		barre.add(algo);
 		barre.add(start);
 		barre.add(reset);
-		barre.add(reload);
+		barre.add(lblTpsEcoule);
 	
 	
 		setJMenuBar(barre);

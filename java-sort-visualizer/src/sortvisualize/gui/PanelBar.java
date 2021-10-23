@@ -45,8 +45,8 @@ public class PanelBar extends JPanel
 		
 		// paint bars
 		
-		int width = 80;
-		int x = 40;
+		int width = Fenetre.getInstance().WIDTH_BAR;
+		int x = Fenetre.getInstance().X_BAR;
 		for (Bar b : bars)
 		{
 			Color color = b.getColor();
