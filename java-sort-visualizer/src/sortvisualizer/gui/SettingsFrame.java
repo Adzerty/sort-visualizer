@@ -31,7 +31,7 @@ public class SettingsFrame extends JFrame {
 	
 	
 	private final int SLIDER_SIZE_ARRAY_MIN = 0;
-	private final int SLIDER_SIZE_ARRAY_MAX = 1000;
+	private final int SLIDER_SIZE_ARRAY_MAX = 5000;
 	private final int SLIDER_SIZE_ARRAY_VAL = 200;
 	
 	private final int SLIDER_WIDTH_BAR_MIN = 0;

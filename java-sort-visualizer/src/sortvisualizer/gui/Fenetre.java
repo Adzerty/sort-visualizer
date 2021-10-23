@@ -15,6 +15,7 @@ import javax.swing.JRadioButtonMenuItem;
 import sortvisualizer.SortVisualizer;
 import sortvisualizer.sort.BubbleSort;
 import sortvisualizer.sort.MergeSort;
+import sortvisualizer.sort.QuickSort;
 
 public class Fenetre extends JFrame {
 	
@@ -89,6 +90,7 @@ public class Fenetre extends JFrame {
 		menuMerge.addActionListener(ae -> sV.setSortAlgorithm(new MergeSort()));
 		
 		menuQuick = new JRadioButtonMenuItem("Quick sort");
+		menuQuick.addActionListener(ae -> sV.setSortAlgorithm(new QuickSort()));
 		
 		menuBubble.setSelected(true);
 		sV.setSortAlgorithm(new BubbleSort());
