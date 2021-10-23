@@ -21,7 +21,7 @@ Sur la frame secondaire "Paramètres" vous pourrez trouver 4 sliders :
 
 # Algorithmes disponibles
 - Bubble sort
-
+- Merge sort
 
 
 
