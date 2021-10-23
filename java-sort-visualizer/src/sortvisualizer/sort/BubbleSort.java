@@ -10,12 +10,14 @@ public class BubbleSort implements Sort {
 		Thread t = new Thread() {
 		      public void run() {
 	    	  	SortVisualizer sV = SortVisualizer.getInstance();
+	    	  	Fenetre f = Fenetre.getInstance();
 	    	  	sV.settSort(this);
 	    	  	
 				int[] array2Swap = sV.getArray();
 				
 				boolean sorted = false;
 				
+				long start = System.currentTimeMillis();
 				while(!sorted) {
 					sorted = true;
 					
@@ -32,10 +34,13 @@ public class BubbleSort implements Sort {
 							} catch (InterruptedException e) {}
 						}
 						
-						Fenetre f = Fenetre.getInstance();
+						
 						f.paintCanva();
 					}
 				}
+				long finish = System.currentTimeMillis();
+				long timeElapsed = finish - start;
+				f.lblTpsEcoule.setText("  "+timeElapsed/1000f+"s écoulées  ");
 				
 				sV.setArray(array2Swap);
 		      }

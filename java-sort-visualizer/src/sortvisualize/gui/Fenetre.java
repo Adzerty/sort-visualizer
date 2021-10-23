@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -26,6 +27,7 @@ public class Fenetre extends JFrame {
 	private SortVisualizer sV = SortVisualizer.getInstance();
 	
 	private PanelBar chart;
+	public JLabel lblTpsEcoule = new JLabel("  0s écoulée  ");
 		
 	private static final long serialVersionUID = 1L;
 	
@@ -46,6 +48,7 @@ public class Fenetre extends JFrame {
 		
 		initMenus();
 		initCanva();
+		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
@@ -99,6 +102,7 @@ public class Fenetre extends JFrame {
 		barre.add(algo);
 		barre.add(start);
 		barre.add(reset);
+		barre.add(lblTpsEcoule);
 	
 	
 		setJMenuBar(barre);
