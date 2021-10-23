@@ -14,6 +14,7 @@ import javax.swing.JRadioButtonMenuItem;
 
 import sortvisualizer.SortVisualizer;
 import sortvisualizer.sort.BubbleSort;
+import sortvisualizer.sort.MergeSort;
 
 public class Fenetre extends JFrame {
 	
@@ -85,6 +86,8 @@ public class Fenetre extends JFrame {
 		menuBubble.addActionListener(ae -> sV.setSortAlgorithm(new BubbleSort()));
 		
 		menuMerge = new JRadioButtonMenuItem("Merge sort");
+		menuMerge.addActionListener(ae -> sV.setSortAlgorithm(new MergeSort()));
+		
 		menuQuick = new JRadioButtonMenuItem("Quick sort");
 		
 		menuBubble.setSelected(true);
@@ -127,7 +130,7 @@ public class Fenetre extends JFrame {
 		chart.reset();
 		for(int i = 0; i < array.length; i++)
 		{
-			chart.addBar(new Color(0f, 0.009f * array[i], 0.01f * array[i]), array[i]);
+			chart.addBar(new Color(0f, 0.009f *  array[i], 0.01f * array[i]), array[i]);
 		}
 		
 		repaint();
