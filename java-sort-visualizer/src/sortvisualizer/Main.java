@@ -1,7 +1,7 @@
 package sortvisualizer;
 
-import sortvisualize.gui.Fenetre;
-import sortvisualize.gui.SettingsFrame;
+import sortvisualizer.gui.Fenetre;
+import sortvisualizer.gui.SettingsFrame;
 
 public class Main {
 	public static void main(String... args) {

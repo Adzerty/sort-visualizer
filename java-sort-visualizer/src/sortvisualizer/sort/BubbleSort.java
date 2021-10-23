@@ -1,7 +1,7 @@
 package sortvisualizer.sort;
 
-import sortvisualize.gui.Fenetre;
 import sortvisualizer.SortVisualizer;
+import sortvisualizer.gui.Fenetre;
 
 public class BubbleSort implements Sort {
 

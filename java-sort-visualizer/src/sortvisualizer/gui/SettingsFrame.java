@@ -1,4 +1,4 @@
-package sortvisualize.gui;
+package sortvisualizer.gui;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;

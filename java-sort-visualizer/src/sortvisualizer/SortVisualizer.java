@@ -2,7 +2,7 @@ package sortvisualizer;
 
 import java.util.Random;
 
-import sortvisualize.gui.Fenetre;
+import sortvisualizer.gui.Fenetre;
 import sortvisualizer.sort.Sort;
 
 /**

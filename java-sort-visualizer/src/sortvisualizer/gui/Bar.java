@@ -1,4 +1,4 @@
-package sortvisualize.gui;
+package sortvisualizer.gui;
 
 import java.awt.Color;
 
