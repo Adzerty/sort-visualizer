@@ -14,6 +14,7 @@ import javax.swing.JRadioButtonMenuItem;
 
 import sortvisualizer.SortVisualizer;
 import sortvisualizer.sort.BubbleSort;
+import sortvisualizer.sort.InsertionSort;
 import sortvisualizer.sort.MergeSort;
 import sortvisualizer.sort.QuickSort;
 
@@ -25,6 +26,7 @@ public class Fenetre extends JFrame {
 	private JRadioButtonMenuItem menuBubble;
 	private JRadioButtonMenuItem menuMerge;
 	private JRadioButtonMenuItem menuQuick;
+	private JRadioButtonMenuItem menuInsert;
 	
 	private SortVisualizer sV = SortVisualizer.getInstance();
 	
@@ -43,6 +45,7 @@ public class Fenetre extends JFrame {
 	
 	private Fenetre()
 	{
+		
 		this.setTitle("Sort visualizer");
 		this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		this.setLocation(0,20);
@@ -91,6 +94,9 @@ public class Fenetre extends JFrame {
 		
 		menuQuick = new JRadioButtonMenuItem("Quick sort");
 		menuQuick.addActionListener(ae -> sV.setSortAlgorithm(new QuickSort()));
+		
+		menuInsert = new JRadioButtonMenuItem("Insertion sort");
+		menuInsert.addActionListener(ae -> sV.setSortAlgorithm(new InsertionSort()));
 		
 		menuBubble.setSelected(true);
 		sV.setSortAlgorithm(new BubbleSort());
